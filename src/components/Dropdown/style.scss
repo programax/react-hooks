@@ -1,0 +1,51 @@
+@mixin label {
+    padding: 16px;
+    border-radius: 2px;
+    color: #555;
+    position: relative;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    width: 200px;
+}
+
+.dropdown {
+    &__label {
+        @include label;
+
+        &:after {
+            position: absolute;
+            top: 21px;
+            right: 16px;
+            content: "\A";
+            width: 0;
+            height: 0;
+
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #555;
+            border-bottom: 0px;
+        }
+
+        &.open:after{
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #555;
+            border-top: 0px;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &-item {
+        @include label;
+        border-top: 0;
+
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}
